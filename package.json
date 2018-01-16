@@ -1,0 +1,17 @@
+{
+  "name": "caret-position",
+  "version": "0.1.0",
+  "description": "Locate the current position of the caret. A plain JavaScript verion of Caret.js.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "caret",
+    "cursor",
+    "position"
+  ],
+  "author": "Deshiknaves",
+  "license": "ISC"
+}
