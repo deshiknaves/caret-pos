@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.editor {
+  overflow: auto;
+  height: 160px;
+  width: 90%;
+  border: 1px solid #dadada;
+  border-radius: 4px;
+  padding: 5px 8px;
+  outline: 0 none;
+  margin: 10px 0;
+  background: white;
+}
+
+.editor:focus {
+  border: 1px solid rgb(6, 150, 247);
+}

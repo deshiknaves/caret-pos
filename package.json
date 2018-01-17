@@ -1,10 +1,11 @@
 {
   "name": "caret-position",
   "version": "0.1.0",
-  "description": "Locate the current position of the caret. A plain JavaScript verion of Caret.js.",
+  "description": "Locate the current position of the caret. A plain JavaScript version of Caret.js.",
   "main": "index.js",
   "private": true,
   "scripts": {
+    "start": "rollup -c --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,5 +14,14 @@
     "position"
   ],
   "author": "Deshiknaves",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "rollup": "^0.54.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-eslint": "^4.0.0",
+    "rollup-plugin-livereload": "^0.6.0",
+    "rollup-plugin-serve": "^0.4.2",
+    "rollup-watch": "^4.3.1"
+  }
 }
