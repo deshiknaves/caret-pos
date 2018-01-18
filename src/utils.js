@@ -1,6 +1,6 @@
 export const isContentEditable = (element) => !!(
   element.contentEditable &&
-  element.contentEditable === true
+  element.contentEditable === 'true'
 );
 
 export const getContext = (settings = {}) => {

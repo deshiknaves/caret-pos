@@ -5,7 +5,7 @@ import { isContentEditable, getContext } from './utils';
 
 const createCaret = (element, ctx) => {
   if (isContentEditable(element)) {
-    return createEditableCaret(element);
+    return createEditableCaret(element, ctx);
   }
 
   return createInputCaret(element, ctx);
@@ -31,4 +31,11 @@ input.addEventListener('click', () => {
   const pos = position(input);
   console.log(pos);
   console.log(offset(input, pos));
+});
+
+const editable = document.getElementById('editable');
+editable.addEventListener('click', () => {
+  const pos = position(editable);
+  console.log(pos);
+  console.log(offset(editable, pos));
 });
