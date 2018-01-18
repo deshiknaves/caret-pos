@@ -2,10 +2,27 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #F1F1F1;
+  padding: 20px;
+  font-family: 'Raleway', sans-serif;
+  color: #222222;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Exo', sans-serif;
+}
+
+textarea {
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+}
+
 .editor {
   overflow: auto;
   height: 160px;
-  width: 90%;
+  width: 100%;
   border: 1px solid #dadada;
   border-radius: 4px;
   padding: 5px 8px;
@@ -15,5 +32,5 @@
 }
 
 .editor:focus {
-  border: 1px solid rgb(6, 150, 247);
+  border: 1px solid #5ABBF6;
 }
