@@ -18,3 +18,15 @@ export const getContext = (settings = {}) => {
     document,
   };
 };
+
+export const getOffset = (element, ctx) => {
+  const doc = ctx && ctx.document || document;
+  const rect = element.getBoundingClientRect();
+
+  return {
+    top: rect.top + doc.body.scrollTop,
+    left: rect.left + doc.body.scrollLeft
+  };
+};
+
+export const isObject = (value) => typeof value === 'object' && value !== null;

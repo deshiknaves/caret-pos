@@ -1,8 +1,7 @@
-/* global __dirname */
 import babel from 'rollup-plugin-babel';
 import eslint from 'rollup-plugin-eslint';
-import serve from 'rollup-plugin-serve';
-import livereload from 'rollup-plugin-livereload';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
 
 export default {
   input: 'src/main.js',
@@ -13,13 +12,12 @@ export default {
     file: 'lib/main.js',
   },
   plugins: [
-    serve({
-      port: 8080,
-      contentBase: '',
+    resolve({
+      jsnext: true,
+      main: true,
+      browser: true,
     }),
-    livereload({
-      watch: ['lib', __dirname + '/styles.css'],
-    }),
+    commonjs(),
     eslint(),
     babel({
       exclude: 'node_modules/**',

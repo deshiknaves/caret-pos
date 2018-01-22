@@ -1,6 +1,6 @@
 import createInputCaret from './input';
 import createEditableCaret from './editable';
-import { isContentEditable, getContext } from './utils';
+import { isContentEditable, getContext, isObject } from './utils';
 
 
 const createCaret = (element, ctx) => {
@@ -11,31 +11,30 @@ const createCaret = (element, ctx) => {
   return createInputCaret(element, ctx);
 };
 
-export const position = (element, value) => {
-  let val = value;
-  const ctx = getContext();
+export const position = (element, value, settings = {}) => {
+  let options = settings;
+  if (isObject(value)) {
+    options = value;
+    value = null;
+  }
+  const ctx = getContext(options);
   const caret = createCaret(element, ctx);
-  return caret.getPos(val);
+
+  if (value || value === 0) {
+    return caret.setPos(value);
+  }
+
+  return caret.getPos();
 };
 
-export const offset = (element, pos) => {
-  const ctx = getContext();
+export const offset = (element, value, settings = {}) => {
+  let options = settings;
+  if (isObject(value)) {
+    options = value;
+    value = null;
+  }
+
+  const ctx = getContext(options);
   const caret = createCaret(element, ctx);
-  return caret.getOffset(pos);
+  return caret.getOffset(value);
 };
-
-
-// Just tests
-const input = document.getElementById('input');
-input.addEventListener('click', () => {
-  const pos = position(input);
-  console.log(pos);
-  console.log(offset(input, pos));
-});
-
-const editable = document.getElementById('editable');
-editable.addEventListener('click', () => {
-  const pos = position(editable);
-  console.log(pos);
-  console.log(offset(editable, pos));
-});

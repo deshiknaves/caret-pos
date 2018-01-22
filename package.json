@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "rollup -c --watch",
+    "build": "rollup -c",
+    "start": "rollup -c rollup.dev.config.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -19,9 +20,12 @@
     "babel-core": "^6.26.0",
     "rollup": "^0.54.0",
     "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-eslint": "^4.0.0",
     "rollup-plugin-livereload": "^0.6.0",
+    "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-serve": "^0.4.2",
     "rollup-watch": "^4.3.1"
-  }
+  },
+  "dependencies": {}
 }
