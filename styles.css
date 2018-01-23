@@ -31,6 +31,46 @@ textarea {
   background: white;
 }
 
+iframe.editor {
+  padding: 0;
+}
+
 .editor:focus {
   border: 1px solid #5ABBF6;
+}
+
+.offset-box {
+  border-right: 1px dashed gray;
+  border-bottom: 1px dashed gray;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.offset-box > .position-box {
+  border-right: 1px dashed rgb(6, 150, 247);
+  border-bottom: 1px dashed rgb(6, 150, 247);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10000;
+}
+
+.indicators {
+  position: absolute;
+}
+
+.indicators > .offset-indicator {
+  border: 1px solid gray;
+  z-index: 999;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.indicators > .position-indicator {
+  border: 1px solid rgb(6, 150, 247);
+  bottom: -50px;
+  padding: 0 3px;
+  border-radius: 3px;
 }
