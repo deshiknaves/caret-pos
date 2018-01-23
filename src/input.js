@@ -1,4 +1,5 @@
 import createMirror from './mirror';
+import { getOffset as elementOffset } from './utils';
 
 /**
  * Create a Input caret object.\
@@ -95,7 +96,7 @@ const createInputCaret = (element, ctx) => {
       offset.top += ctx.window.scrollTop + element.scrollTop;
       offset.left += ctx.window.scrollLeft + element.scrollLeft;
     } else {
-      const rect = element.getBoundingClientRect();
+      const rect = elementOffset(element);
       const position = getPosition(pos);
       offset = {
         top: rect.top + position.top + ctx.document.body.scrollTop,

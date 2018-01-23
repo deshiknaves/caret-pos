@@ -20,12 +20,16 @@ export const getContext = (settings = {}) => {
 };
 
 export const getOffset = (element, ctx) => {
+  const win = ctx && ctx.window || window;
   const doc = ctx && ctx.document || document;
   const rect = element.getBoundingClientRect();
+  const docEl = doc.documentElement;
+  const scrollLeft = win.pageXOffset || docEl.scrollLeft;
+  const scrollTop = win.pageYOffset || docEl.scrollTop;
 
   return {
-    top: rect.top + doc.body.scrollTop,
-    left: rect.left + doc.body.scrollLeft
+    top: rect.top + scrollTop,
+    left: rect.left + scrollLeft
   };
 };
 
