@@ -24,7 +24,7 @@ export const position = (element, value, settings = {}) => {
     return caret.setPos(value);
   }
 
-  return caret.getPos();
+  return caret.getPosition();
 };
 
 export const offset = (element, value, settings = {}) => {
