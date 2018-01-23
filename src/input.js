@@ -99,7 +99,8 @@ const createInputCaret = (element, ctx) => {
       const position = getPosition(pos);
       offset = {
         top: rect.top + position.top + ctx.document.body.scrollTop,
-        left: rect.left + position.left + ctx.document.body.scrollLeft
+        left: rect.left + position.left + ctx.document.body.scrollLeft,
+        height: position.height,
       };
     }
 
