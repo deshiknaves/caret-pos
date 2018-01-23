@@ -5,16 +5,17 @@ const createEditableCaret = (element, ctx) => {
     if (sel) {
       let offset = 0;
       let found = false;
-      const find = (pos, parent) => {
-        for (const node in parent.childNodes) {
+      const find = (position, parent) => {
+        for (let i = 0; i < parent.childNodes.length; i++) {
+          const node = parent.childNodes[i];
           if (found) {
             break;
           }
           if (node.nodeType === 3) {
-            if (offset + node.length >= pos) {
+            if (offset + node.length >= position) {
               found = true;
               const range = ctx.document.createRange();
-              range.setStart(node, pos - offset);
+              range.setStart(node, position - offset);
               sel.removeAllRanges();
               sel.addRange(range);
               break;
@@ -124,7 +125,7 @@ const createEditableCaret = (element, ctx) => {
   };
 
   const getOldIEOffset = () => {
-    const range = ctx.document.selection.createRange().dupliate();
+    const range = ctx.document.selection.createRange().duplicate();
     range.moveStart('character', -1);
     const rect = range.getBoundingClientRect();
 
