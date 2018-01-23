@@ -21,23 +21,29 @@ const setIndicators = (off, pos) => {
   positionIndicator.innerHTML = `Position: left: ${pos.left}, top: ${pos.top}`;
 };
 
-const input = document.getElementById('input');
-input.addEventListener('click', () => {
+const inputEventHandler = () => {
   const pos = position(input);
   const off = offset(input);
   console.log(pos);
   console.log(off);
   setIndicators(off, pos);
-});
+};
 
-const editable = document.getElementById('editable');
-editable.addEventListener('click', () => {
+const input = document.getElementById('input');
+input.addEventListener('click', inputEventHandler);
+input.addEventListener('focus', inputEventHandler);
+
+const editableEventHandler = () => {
   const pos = position(editable);
   const off = offset(editable);
   console.log(pos);
   console.log(off);
   setIndicators(off, pos);
-});
+};
+
+const editable = document.getElementById('editable');
+editable.addEventListener('click', editableEventHandler);
+editable.addEventListener('focus', editableEventHandler);
 
 const frame = document.getElementById('iframe');
 const body = frame.contentDocument.body;
@@ -45,11 +51,16 @@ body.contentEditable = true;
 body.id = 'frame-body';
 body.innerHTML = 'For <strong>WYSIWYG</strong> such as <strong>ckeditor</strong>';
 
-body.addEventListener('click', () => {
+const iframeEventHandler = () => {
   const off = offset(body, { iframe: frame });
   const frameOffset = getOffset(frame);
   off.left += frameOffset.left;
   off.top += frameOffset.top;
   const pos = position(body, { iframe: frame });
   setIndicators(off, pos);
-});
+};
+
+body.addEventListener('click', iframeEventHandler);
+body.addEventListener('focus', iframeEventHandler);
+
+setTimeout(() => position(input, 67).focus(), 500);
