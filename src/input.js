@@ -10,42 +10,11 @@ import { getOffset as elementOffset } from './utils';
 const createInputCaret = (element, ctx) => {
 
   /**
-   * Get position of old IE
-   *
-   * @returns {number}
-   */
-  const getIEPos = () => {
-    const range = ctx.document.selection.createRange();
-    let pos = 0;
-
-    if (range && range.parentElement() === element) {
-      /* eslint-disable */
-      const value = element.value.replace(/\r\n/g, "\n");
-      /* eslint-enable */
-      const textInputRange = element.createTextRange();
-      textInputRange.moveToBookmark(range.getBookmark());
-      const endRange = element.createTextRange();
-      endRange.collapse(false);
-      if (textInputRange.compareEndPoints('StartToEnd', endRange) > -1) {
-        pos = value.length;
-      } else {
-        pos = -textInputRange.moveStart('character', -value.length);
-      }
-    }
-
-    return pos;
-  };
-
-  /**
    * Get the current position
    *
    * @returns {number}
    */
   const getPos = () => {
-    if (ctx.document.selection) {
-      return getIEPos();
-    }
-
     return element.selectionStart;
   };
 
@@ -68,44 +37,18 @@ const createInputCaret = (element, ctx) => {
   };
 
   /**
-   * Get the offset for old IE
-   *
-   * @param {number} pos The position
-   */
-  const getIEOffset = (pos) => {
-    const range = element.createTextRange();
-    const position = pos || getPos();
-    range.move('character', position);
-
-    return {
-      x: range.boundingLeft,
-      y: range.boundingTop,
-      h: range.boundingHeight
-    };
-  };
-
-  /**
    * The offset
    *
    * @param {number} pos String
    */
   const getOffset = (pos) => {
-    let offset;
-    if (ctx.document.selection) {
-      offset = getIEOffset(pos);
-      offset.top += ctx.window.scrollTop + element.scrollTop;
-      offset.left += ctx.window.scrollLeft + element.scrollLeft;
-    } else {
-      const rect = elementOffset(element);
-      const position = getPosition(pos);
-      offset = {
-        top: rect.top + position.top + ctx.document.body.scrollTop,
-        left: rect.left + position.left + ctx.document.body.scrollLeft,
-        height: position.height,
-      };
-    }
-
-    return offset;
+    const rect = elementOffset(element);
+    const position = getPosition(pos);
+    return {
+      top: rect.top + position.top + ctx.document.body.scrollTop,
+      left: rect.left + position.left + ctx.document.body.scrollLeft,
+      height: position.height,
+    };
   };
 
   /**
@@ -137,8 +80,6 @@ const createInputCaret = (element, ctx) => {
   return {
     getPos,
     setPos,
-    getIEPos,
-    getIEOffset,
     getOffset,
     getPosition,
   };
