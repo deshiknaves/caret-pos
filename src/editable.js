@@ -35,7 +35,16 @@ const createEditableCaret = (element, ctx) => {
 
   const getOffset = () => {
     const range = getRange();
-    let offset;
+    let offset = {
+      height: 0,
+      left: 0,
+      right: 0,
+    };
+
+    if (!range) {
+      return offset;
+    }
+
     // endContainer in Firefox would be the element at the start of
     // the line
     if (range.endOffset - 1 > 0 && range.endContainer !== element) {

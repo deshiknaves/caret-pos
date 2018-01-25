@@ -27,6 +27,12 @@ export const position = (element, value, settings = {}) => {
   return caret.getPosition();
 };
 
+/**
+ *
+ * @param {Element} element The DOM element
+ * @param {number|undefined} value The value to set
+ * @param {object} settings Any settings for context
+ */
 export const offset = (element, value, settings = {}) => {
   let options = settings;
   if (isObject(value)) {

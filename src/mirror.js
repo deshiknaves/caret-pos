@@ -39,7 +39,6 @@ const attributes = [
  *
  * @param {Element} element The element
  * @param {string} html The html
- *
  * @return {Object} The mirror object
  */
 const createMirror = (element, html) => {
@@ -51,8 +50,7 @@ const createMirror = (element, html) => {
 
   /**
    * Create the CSS for the mirror object
-   *
-   * @returns {Object} The style object
+   * @return {Object} The style object
    */
   const mirrorCss = () => {
     const css = {
@@ -75,7 +73,6 @@ const createMirror = (element, html) => {
 
   /**
    * Initialize the mirror
-   *
    * @param {string} html The html
    */
   const initialize = (html) => {
@@ -89,8 +86,7 @@ const createMirror = (element, html) => {
 
   /**
    * Get the rect
-   *
-   * @returns {Rect} The bounding rect
+   * @return {Rect} The bounding rect
    */
   const rect = () => {
     const marker = mirror.ownerDocument.getElementById('caret-position-marker');

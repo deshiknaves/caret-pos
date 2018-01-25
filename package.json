@@ -1,5 +1,5 @@
 {
-  "name": "caret-position",
+  "name": "caret-offset",
   "version": "0.1.0",
   "description": "Locate the current position of the caret. A plain JavaScript version of Caret.js.",
   "main": "index.js",
@@ -12,7 +12,8 @@
   "keywords": [
     "caret",
     "cursor",
-    "position"
+    "position",
+    "offset"
   ],
   "author": "Deshiknaves",
   "license": "MIT",

@@ -39,37 +39,44 @@ iframe.editor {
   border: 1px solid #5ABBF6;
 }
 
-.offset-box {
-  border-right: 1px dashed gray;
-  border-bottom: 1px dashed gray;
+.offset-y-line, .offset-x-line {
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: 999;
+  opacity: 0.8;
 }
 
-.offset-box > .position-box {
-  border-right: 1px dashed rgb(6, 150, 247);
-  border-bottom: 1px dashed rgb(6, 150, 247);
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 10000;
+.offset-y-line {
+  border-left: 1px dashed magenta;
+  height: 100%;
+  top: 0;
+  left: -1px;
+}
+
+.offset-x-line {
+  border-bottom: 1px dashed cyan;
+  width: 100%;
+  top: -1px;
+  left: 0;
 }
 
 .indicators {
   position: absolute;
+  background: #000;
+  opacity: 0.75;
+  border-radius: 6px;
+  border-top-left-radius: 0;
+  color: #fff;
+  padding: 5px;
+  margin-top: 2px;
 }
 
 .indicators > .offset-indicator {
-  border: 1px solid gray;
   z-index: 999;
   padding: 0 3px;
   border-radius: 3px;
 }
 
 .indicators > .position-indicator {
-  border: 1px solid rgb(6, 150, 247);
   bottom: -50px;
   padding: 0 3px;
   border-radius: 3px;

@@ -4,46 +4,58 @@ import {
 } from './main';
 import { getOffset } from './utils';
 
-const offsetBox = document.querySelector('.offset-box');
+const offsetYLine = document.querySelector('.offset-y-line');
+const offsetXLine = document.querySelector('.offset-x-line');
 const indicators = document.querySelector('.indicators');
 const offsetIndicator = indicators.querySelector('.offset-indicator');
-const positionBox = document.querySelector('.position-box');
 const positionIndicator = document.querySelector('.position-indicator');
 
 const setIndicators = (off, pos) => {
-  offsetBox.style.width = off.left + 'px';
-  offsetBox.style.height = Math.ceil(off.top) + 'px';
-  indicators.style.left = off.left + 'px';
-  indicators.style.top = (Math.ceil(off.top) + off.height)  + 'px';
-  offsetIndicator.innerHTML = `Offset: left: ${off.left}, top: ${off.top} height: ${off.height}`;
-  positionBox.style.width = pos.left;
-  positionBox.style.height = pos.top;
-  positionIndicator.innerHTML = `Position: left: ${pos.left}, top: ${pos.top}`;
+  offsetYLine.style.left = `${Math.ceil(off.left)}px`;
+  offsetXLine.style.top = `${Math.ceil(off.top)}px`;
+  indicators.style.left = `${Math.ceil(off.left)}px`;
+  indicators.style.top = `${(Math.ceil(off.top) + Math.ceil(off.height))}px`;
+  offsetIndicator.innerHTML = `Offset: left: ${Math.ceil(off.left)}, top: ${Math.ceil(off.top)} height: ${Math.ceil(off.height)}`;
+  positionIndicator.innerHTML = `Position: left: ${Math.ceil(pos.left)}, top: ${Math.ceil(pos.top)}`;
 };
+
+/* eslint-disable */
+const output = (name, pos, off) => {
+  console.clear();
+  if (console.group) {
+    console.group(name);
+    console.log('position:', pos);
+    console.log('offset:', off);
+    console.groupEnd();
+  } else {
+    console.log(name);
+    console.log('position:', pos);
+    console.log('offset:', off);
+  }
+};
+/* eslint-enable */
 
 const inputEventHandler = () => {
   const pos = position(input);
   const off = offset(input);
-  console.log(pos);
-  console.log(off);
+  output('Textarea', pos, off);
   setIndicators(off, pos);
 };
 
 const input = document.getElementById('input');
-input.addEventListener('click', inputEventHandler);
-input.addEventListener('focus', inputEventHandler);
+input.addEventListener('mouseup', inputEventHandler);
+input.addEventListener('keyup', inputEventHandler);
 
 const editableEventHandler = () => {
   const pos = position(editable);
   const off = offset(editable);
-  console.log(pos);
-  console.log(off);
+  output('ContentEditable', pos, off);
   setIndicators(off, pos);
 };
 
 const editable = document.getElementById('editable');
-editable.addEventListener('click', editableEventHandler);
-editable.addEventListener('focus', editableEventHandler);
+editable.addEventListener('mouseup', editableEventHandler);
+editable.addEventListener('keyup', editableEventHandler);
 
 const frame = document.getElementById('iframe');
 const body = frame.contentDocument.body;
@@ -57,10 +69,14 @@ const iframeEventHandler = () => {
   off.left += frameOffset.left;
   off.top += frameOffset.top;
   const pos = position(body, { iframe: frame });
+  output('iframe body', pos, off);
   setIndicators(off, pos);
 };
 
-body.addEventListener('click', iframeEventHandler);
-body.addEventListener('focus', iframeEventHandler);
+body.addEventListener('mouseup', iframeEventHandler);
+body.addEventListener('keyup', iframeEventHandler);
 
-setTimeout(() => position(input, 67).focus(), 500);
+setTimeout(() => {
+  position(input, 67).focus();
+  inputEventHandler();
+}, 500);
