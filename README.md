@@ -1,4 +1,4 @@
-# Caret Offset
+# Caret Pos
 
 Get the position/offset of the caret/cursor from a textarea, contentedtiable, or an iframe body.
 
