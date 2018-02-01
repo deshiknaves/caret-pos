@@ -19,6 +19,10 @@
     "position",
     "offset"
   ],
+  "files": [
+    "lib",
+    "src"
+  ],
   "author": "Deshiknaves <deshi@deshiknaves.com>",
   "license": "MIT",
   "devDependencies": {
