@@ -3,7 +3,7 @@ import eslint from 'rollup-plugin-eslint';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 
-export const plugins = [
+const plugins = [
   resolve({
     jsnext: true,
     main: true,
@@ -21,6 +21,7 @@ export default [
     input: 'src/main.js',
     output: {
       name: 'caret-pos',
+      exports: 'named',
       sourcemap: true,
       format: 'umd',
       file: 'lib/bundle/main.js',
@@ -31,6 +32,7 @@ export default [
     input: 'src/main.js',
     output: {
       name: 'caret-pos',
+      exports: 'named',
       sourcemap: true,
       format: 'es',
       file: 'lib/esm2015/main.js',
