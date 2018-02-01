@@ -1,7 +1,7 @@
 /* global __dirname */
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
-import common from './rollup.config';
+import { plugins } from './rollup.config';
 
 export default {
   input: 'src/main.dev.js',
@@ -19,6 +19,6 @@ export default {
     livereload({
       watch: ['lib', __dirname + '/styles.css'],
     }),
-    ...common.plugins,
+    ...plugins,
   ]
 };

@@ -3,24 +3,38 @@ import eslint from 'rollup-plugin-eslint';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 
-export default {
-  input: 'src/main.js',
-  output: {
-    name: 'caret-position',
-    sourcemap: true,
-    format: 'umd',
-    file: 'lib/main.js',
+export const plugins = [
+  resolve({
+    jsnext: true,
+    main: true,
+    browser: true,
+  }),
+  commonjs(),
+  eslint(),
+  babel({
+    exclude: 'node_modules/**',
+  }),
+];
+
+export default [
+  {
+    input: 'src/main.js',
+    output: {
+      name: 'caret-pos',
+      sourcemap: true,
+      format: 'umd',
+      file: 'lib/bundle/main.js',
+    },
+    plugins,
   },
-  plugins: [
-    resolve({
-      jsnext: true,
-      main: true,
-      browser: true,
-    }),
-    commonjs(),
-    eslint(),
-    babel({
-      exclude: 'node_modules/**',
-    }),
-  ]
-};
+  {
+    input: 'src/main.js',
+    output: {
+      name: 'caret-pos',
+      sourcemap: true,
+      format: 'es',
+      file: 'lib/esm2015/main.js',
+    },
+    plugins,
+  }
+];

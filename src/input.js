@@ -24,14 +24,7 @@ const createInputCaret = (element, ctx) => {
    * @param {number} pos The position
    */
   const setPos = (pos) => {
-    // IE
-    if (ctx.document.selection) {
-      const range = element.createTextRange();
-      range.move('characters', pos);
-      range.select();
-    } else if (element.setSelectionRange) {
-      element.setSelectionRange(pos, pos);
-    }
+    element.setSelectionRange(pos, pos);
 
     return element;
   };
