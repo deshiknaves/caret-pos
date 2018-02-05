@@ -39,7 +39,8 @@ const attributes = [
  *
  * @param {Element} element The element
  * @param {string} html The html
- * @return {Object} The mirror object
+ *
+ * @return {object} The mirror object
  */
 const createMirror = (element, html) => {
 
@@ -50,7 +51,8 @@ const createMirror = (element, html) => {
 
   /**
    * Create the CSS for the mirror object
-   * @return {Object} The style object
+   *
+   * @return {object} The style object
    */
   const mirrorCss = () => {
     const css = {
@@ -73,7 +75,10 @@ const createMirror = (element, html) => {
 
   /**
    * Initialize the mirror
+   *
    * @param {string} html The html
+   *
+   * @return {void}
    */
   const initialize = (html) => {
     const styles = mirrorCss();
@@ -86,6 +91,7 @@ const createMirror = (element, html) => {
 
   /**
    * Get the rect
+   *
    * @return {Rect} The bounding rect
    */
   const rect = () => {

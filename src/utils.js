@@ -1,6 +1,8 @@
 /**
  * Check if a DOM Element is content editable
+ *
  * @param {Element} element  The DOM element
+ *
  * @return {bool} If it is content editable
  */
 export const isContentEditable = (element) => !!(
@@ -10,7 +12,9 @@ export const isContentEditable = (element) => !!(
 
 /**
  * Get the context from settings passed in
+ *
  * @param {object} settings The settings object
+ *
  * @return {object} window and document
  */
 export const getContext = (settings = {}) => {
@@ -31,8 +35,10 @@ export const getContext = (settings = {}) => {
 
 /**
  * Get the offset of an element
+ *
  * @param {Element} element The DOM element
  * @param {object} ctx The context
+ *
  * @return {object} top and left
  */
 export const getOffset = (element, ctx) => {
@@ -51,7 +57,9 @@ export const getOffset = (element, ctx) => {
 
 /**
  * Check if a value is an object
+ *
  * @param {any} value The value to check
+ *
  * @return {bool} If it is an object
  */
 export const isObject = (value) => typeof value === 'object' && value !== null;

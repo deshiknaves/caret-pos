@@ -1,5 +1,19 @@
+/**
+ * Create an Editable Caret
+ * @param {Element} element The editable element
+ * @param {object|null} ctx The context
+ *
+ * @return {EditableCaret}
+ */
 const createEditableCaret = (element, ctx) => {
 
+  /**
+   * Set the caret position
+   *
+   * @param {int} pos The position to se
+   *
+   * @return {Element} The element
+   */
   const setPos = (pos) => {
     const sel = ctx.window.getSelection();
     if (sel) {
@@ -33,6 +47,11 @@ const createEditableCaret = (element, ctx) => {
     return element;
   };
 
+  /**
+   * Get the offset
+   *
+   * @return {object} The offset
+   */
   const getOffset = () => {
     const range = getRange();
     let offset = {
@@ -84,6 +103,11 @@ const createEditableCaret = (element, ctx) => {
     return offset;
   };
 
+  /**
+   * Get the position
+   *
+   * @return {object} The position
+   */
   const getPosition = () => {
     const offset = getOffset();
     const pos = getPos();
@@ -99,6 +123,11 @@ const createEditableCaret = (element, ctx) => {
     return offset;
   };
 
+  /**
+   * Get the range
+   *
+   * @return {Range|null}
+   */
   const getRange = () => {
     if (!ctx.window.getSelection) {
       return;
@@ -108,6 +137,11 @@ const createEditableCaret = (element, ctx) => {
     return sel.rangeCount > 0 ? sel.getRangeAt(0) : null;
   };
 
+  /**
+   * Get the caret position
+   *
+   * @return {int} The position
+   */
   const getPos = () => {
     const range = getRange();
     const clonedRange = range.cloneRange();
@@ -115,6 +149,7 @@ const createEditableCaret = (element, ctx) => {
     clonedRange.setEnd(range.endContainer, range.endOffset);
     const pos = clonedRange.toString().length;
     clonedRange.detach();
+
     return pos;
   };
 
