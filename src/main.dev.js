@@ -16,7 +16,7 @@ const setIndicators = (off, pos) => {
   indicators.style.left = `${Math.ceil(off.left)}px`;
   indicators.style.top = `${(Math.ceil(off.top) + Math.ceil(off.height))}px`;
   offsetIndicator.innerHTML = `Offset: left: ${Math.ceil(off.left)}, top: ${Math.ceil(off.top)} height: ${Math.ceil(off.height)}`;
-  positionIndicator.innerHTML = `Position: left: ${Math.ceil(pos.left)}, top: ${Math.ceil(pos.top)}`;
+  positionIndicator.innerHTML = `Position: left: ${Math.ceil(pos.left)}, top: ${Math.ceil(pos.top)} height: ${Math.ceil(pos.height)} pos: ${pos.pos}`;
 };
 
 /* eslint-disable */
