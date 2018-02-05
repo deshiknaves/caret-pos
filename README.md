@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/deshiknaves/caret-pos.svg?branch=master)](https://travis-ci.org/deshiknaves/caret-pos)
+
 # Caret Pos
 
 Get the position/offset of the caret/cursor from a textarea, contentedtiable, or an iframe body.
