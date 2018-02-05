@@ -1,11 +1,15 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jasmine": true
     },
     "globals": {
       "ENV": true
     },
+    "plugins": [
+      "jasmine"
+    ],
     "extends": "eslint:recommended",
     "parserOptions": {
         "sourceType": "module"
