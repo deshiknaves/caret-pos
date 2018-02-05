@@ -67,7 +67,10 @@ const createInputCaret = (element, ctx) => {
     html += `<span style="position: relative; display: inline;">${format(endRange)}</span>`;
 
     const mirror = createMirror(element, html);
-    return mirror.rect();
+    const rect = mirror.rect();
+    rect.pos = getPos();
+
+    return rect;
   };
 
   return {

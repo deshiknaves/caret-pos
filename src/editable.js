@@ -86,6 +86,7 @@ const createEditableCaret = (element, ctx) => {
 
   const getPosition = () => {
     const offset = getOffset();
+    const pos = getPos();
     const rect = element.getBoundingClientRect();
     const inputOffset = {
       top: rect.top + ctx.document.body.scrollTop,
@@ -93,6 +94,7 @@ const createEditableCaret = (element, ctx) => {
     };
     offset.left -= inputOffset.left;
     offset.top -= inputOffset.top;
+    offset.pos = pos;
 
     return offset;
   };
