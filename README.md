@@ -24,7 +24,7 @@ Use one of the functions to get the value.
 
 ```javascript
 const input = document.querySelector('.foo');
-const pos = position(input); // { left: 15, top: 30, height: 20 }
+const pos = position(input); // { left: 15, top: 30, height: 20, pos: 15 }
 const off = offset(input); // { left: 15, top: 30, height: 20 }
 ```
 
