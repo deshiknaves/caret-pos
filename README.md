@@ -57,3 +57,15 @@ const frameOffset = getOffset(frame);
   off.left += frameOffset.left;
   off.top += frameOffset.top;
 ```
+
+### shadow caret
+When getting the offset, in certain cases a "shadow caret" is temporarily created and destroyed to facilitate calculations.
+If one does not wish to mutate the DOM in this way, one can include the `noShadowCaret` option in the offset:
+
+```javascript
+import { offset } from 'caret-pos';
+
+offset(el, {noShadowCaret: true});
+```
+
+Note that doing this might make the offset calculation less accurate in some edge cases.

@@ -1,4 +1,4 @@
-import { position } from './main';
+import { position, offset } from './main';
 
 describe('caret-pos', () => {
   let element = null;
@@ -115,4 +115,59 @@ describe('caret-pos', () => {
     });
   });
 });
+
+describe('caret-offset', () => {
+  let element = null;
+  let editor;
+
+  beforeEach(() => {
+    element = document.createElement('div');
+    element.id = 'wrapper';
+    document.body.appendChild(element);
+  });
+
+  afterEach(() => {
+    element.parentNode.removeChild(element);
+  });
+
+  describe('Editable', () => {
+    let contentEditable;
+
+    beforeEach(() => {
+      spyOn(document, 'createTextNode').and.callThrough();
+      contentEditable = ''
+        + '<div id="editor" contentEditable="true">'
+        + 'Hello '
+        + '<span id="test">World</span>'
+        + '! '
+        + '<div><br></div>'
+        + '<div>'
+        + '<ul>'
+        + '<li>Testing 1</li>'
+        + '<li>Testin 2</li>'
+        + '</ul>'
+        + '<div>--</div>'
+        + '</div>'
+        + '<div><br></div>'
+        + '</div>';
+
+      element.innerHTML = contentEditable;
+      editor = document.getElementById('editor');
+    });
+
+    it('should correctly get the caret offset', () => {
+      position(editor, 3);
+      const off = offset(editor);
+      expect(off.height).toBe(19);
+      expect(off.left).toBe(37);
+      expect(off.top).toBe(8);
+    });
+
+    it('should respect noShadowCaret', () => {
+      position(editor, 0);
+      offset(editor, {noShadowCaret: true});
+      expect(document.createTextNode).not.toHaveBeenCalled();
+    });
+  })
+})
 
