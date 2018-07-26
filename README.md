@@ -65,7 +65,7 @@ If one does not wish to mutate the DOM in this way, one can include the `noShado
 ```javascript
 import { offset } from 'caret-pos';
 
-offset(el, {noShadowCaret: true});
+offset(el, { noShadowCaret: true });
 ```
 
 Note that doing this might make the offset calculation less accurate in some edge cases.
