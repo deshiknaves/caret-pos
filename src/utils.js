@@ -18,18 +18,20 @@ export const isContentEditable = (element) => !!(
  * @return {object} window and document
  */
 export const getContext = (settings = {}) => {
-  const { iframe } = settings;
+  const { iframe, noShadowCaret } = settings;
   if (iframe) {
     return {
       iframe,
       window: iframe.contentWindow,
       document: iframe.contentDocument || iframe.contentWindow.document,
+      noShadowCaret,
     };
   }
 
   return {
     window,
     document,
+    noShadowCaret,
   };
 };
 

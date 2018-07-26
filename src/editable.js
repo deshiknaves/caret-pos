@@ -79,7 +79,7 @@ const createEditableCaret = (element, ctx) => {
       clonedRange.detach();
     }
 
-    if (!offset || (offset && offset.height === 0)) {
+    if ((!offset || (offset && offset.height === 0)) && !ctx.noShadowCaret) {
       const clonedRange = range.cloneRange();
       const shadowCaret = ctx.document.createTextNode('|');
       clonedRange.insertNode(shadowCaret);
