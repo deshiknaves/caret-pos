@@ -38,8 +38,8 @@ describe('caret-pos', () => {
       position(editor, 3);
       const off = offset(editor, { customPos: 2 });
       expect(off.height).toBe(14);
-      expect(off.left).toBe(29);
-      expect(off.top).toBe(12);
+      expect(off.left).toBe(19);
+      expect(off.top).toBe(2);
     });
   });
 
@@ -167,8 +167,8 @@ describe('caret-offset', () => {
       position(editor, 3);
       const off = offset(editor);
       expect(off.height).toBe(14);
-      expect(off.left).toBe(33);
-      expect(off.top).toBe(8);
+      expect(off.left).toBe(25);
+      expect(off.top).toBe(0);
     });
 
     it('should respect noShadowCaret', () => {
@@ -181,8 +181,8 @@ describe('caret-offset', () => {
       position(editor, 3);
       const off = offset(editor, { customPos: 2 });
       expect(off.height).toBe(14);
-      expect(off.left).toBe(25);
-      expect(off.top).toBe(8);
+      expect(off.left).toBe(17);
+      expect(off.top).toBe(0);
     });
   });
 });
