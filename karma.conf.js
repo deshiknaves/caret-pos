@@ -1,9 +1,11 @@
-/* global module, require */
+/* global module, require, process */
 // Karma configuration
 // Generated on Sun Feb 04 2018 22:34:05 GMT+1100 (AEDT)
+const puppeteer = require('puppeteer');
+process.env.CHROME_BIN = puppeteer.executablePath();
 
 module.exports = function(config) {
-  config.set({
+  const configuration = {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -16,7 +18,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      { pattern: 'src/**/*.spec.js', watched: false }
+      { pattern: 'src/**/*.spec.js', watched: false },
+      'src/reset.css'
     ],
 
 
@@ -40,6 +43,12 @@ module.exports = function(config) {
       }
     },
 
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -66,7 +75,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
 
 
     // Continuous Integration mode
@@ -76,5 +85,11 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  });
+  };
+
+  if (process.env.TRAVIS) {
+    configuration.browsers = ['Chrome_travis_ci'];
+  }
+
+  config.set(configuration);
 };
