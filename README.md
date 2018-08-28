@@ -69,3 +69,14 @@ offset(el, { noShadowCaret: true });
 ```
 
 Note that doing this might make the offset calculation less accurate in some edge cases.
+
+### custom position
+Passing the `customPos` option allows specifying a custom cursor position in the element when getting the offset.
+This will not change the position, but calculate the offset from the custom position rather than the current one.
+This works for both contentEditable and textarea.
+
+```javascript
+import { offset } from 'caret-pos';
+
+offset(el, { customPos: 2 });
+```

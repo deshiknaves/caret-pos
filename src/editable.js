@@ -64,12 +64,15 @@ const createEditableCaret = (element, ctx) => {
       return offset;
     }
 
+    const hasCustomPos = ctx.customPos || ctx.customPos === 0;
+
     // endContainer in Firefox would be the element at the start of
     // the line
-    if (range.endOffset - 1 > 0 && range.endContainer !== element) {
+    if ((range.endOffset - 1 > 0 && range.endContainer !== element) || hasCustomPos) {
       const clonedRange = range.cloneRange();
-      clonedRange.setStart(range.endContainer, range.endOffset - 1);
-      clonedRange.setEnd(range.endContainer, range.endOffset);
+      const fixedPosition = hasCustomPos ? ctx.customPos : range.endOffset;
+      clonedRange.setStart(range.endContainer, fixedPosition - 1 < 0 ? 0 : fixedPosition - 1);
+      clonedRange.setEnd(range.endContainer, fixedPosition);
       const rect = clonedRange.getBoundingClientRect();
       offset = {
         height: rect.height,
