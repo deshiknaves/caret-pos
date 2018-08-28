@@ -33,6 +33,14 @@ describe('caret-pos', () => {
 
       expect(pos.pos).toBe(15);
     });
+
+    it('should correctly get the caret offset with a custom position', () => {
+      position(editor, 3);
+      const off = offset(editor, {customPos: 2});
+      expect(off.height).toBe(19);
+      expect(off.left).toBe(22);
+      expect(off.top).toBe(12);
+    });
   });
 
   describe('Editable', () => {
@@ -167,6 +175,14 @@ describe('caret-offset', () => {
       position(editor, 0);
       offset(editor, {noShadowCaret: true});
       expect(document.createTextNode).not.toHaveBeenCalled();
+    });
+
+    it('should correctly get the caret offset with a custom position', () => {
+      position(editor, 3);
+      const off = offset(editor, {customPos: 2});
+      expect(off.height).toBe(19);
+      expect(off.left).toBe(31);
+      expect(off.top).toBe(8);
     });
   })
 })
