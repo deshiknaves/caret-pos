@@ -66,6 +66,10 @@ const createInputCaret = (element, ctx) => {
       return value;
     };
 
+    if (ctx.customPos || ctx.customPos === 0) {
+      pos = ctx.customPos;
+    }
+
     const position = pos === undefined ? getPos() : pos;
     const startRange = element.value.slice(0, position);
     const endRange = element.value.slice(position);
