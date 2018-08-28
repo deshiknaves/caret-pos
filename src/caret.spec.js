@@ -36,10 +36,10 @@ describe('caret-pos', () => {
 
     it('should correctly get the caret offset with a custom position', () => {
       position(editor, 3);
-      const off = offset(editor, { customPos: 2 });
-      expect(off.height).toBe(16);
-      expect(off.left).toBe(19);
-      expect(off.top).toBe(0);
+      const off = offset(editor, {customPos: 2});
+      expect(off.height).toBe(19);
+      expect(off.left).toBe(22);
+      expect(off.top).toBe(12);
     });
   });
 
@@ -166,9 +166,9 @@ describe('caret-offset', () => {
     it('should correctly get the caret offset', () => {
       position(editor, 3);
       const off = offset(editor);
-      expect(off.height).toBe(16);
-      expect(off.left).toBe(29);
-      expect(off.top).toBe(0);
+      expect(off.height).toBe(19);
+      expect(off.left).toBe(37);
+      expect(off.top).toBe(8);
     });
 
     it('should respect noShadowCaret', () => {
@@ -180,9 +180,9 @@ describe('caret-offset', () => {
     it('should correctly get the caret offset with a custom position', () => {
       position(editor, 3);
       const off = offset(editor, { customPos: 2 });
-      expect(off.height).toBe(16);
-      expect(off.left).toBe(19);
-      expect(off.top).toBe(0);
+      expect(off.height).toBe(19);
+      expect(off.left).toBe(31);
+      expect(off.top).toBe(8);
     });
   });
 });
