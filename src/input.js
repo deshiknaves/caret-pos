@@ -60,9 +60,6 @@ const createInputCaret = (element, ctx) => {
     const format = (val) => {
       let value = val.replace(/<|>|`|"|&/g, '?')
         .replace(/\r\n|\r|\n/g,'<br/>');
-      if (/firefox/i.test(navigator.userAgent)) {
-        value = value.replace(/\s/g, '&nbsp;');
-      }
       return value;
     };
 
