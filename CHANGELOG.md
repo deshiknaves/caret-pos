@@ -1,5 +1,8 @@
 # Caret Pos
 
+# Version 1.2.1 - 2018-09-04
+- Removed conversion from `\s` to `&nbsp;` for Firefox. It's not needed.
+
 # Version 1.2.0 - 2018-08-28
 - Added `customPos` option to `offset`
 
