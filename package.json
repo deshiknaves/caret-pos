@@ -44,7 +44,7 @@
     "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-stage-1": "^6.24.1",
     "eslint-plugin-jasmine": "^2.9.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
