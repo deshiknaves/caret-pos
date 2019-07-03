@@ -4,6 +4,7 @@
   "description": "Locate the current position of the caret. A plain JavaScript version of Caret.js.",
   "main": "lib/bundle/main.min.js",
   "module": "lib/esm2015/main.js",
+  "typings": "index.d.ts",
   "scripts": {
     "prebuild": "rimraf ./lib",
     "build": "rollup -c",
@@ -22,6 +23,7 @@
   "files": [
     "lib",
     "src",
+    "index.d.ts",
     "README.md",
     "LICENSE-MIT"
   ],
