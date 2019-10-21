@@ -3,7 +3,6 @@
 # Version 1.2.2 - 2019-10-21
 - Added typings
 
-
 # Version 1.2.1 - 2018-09-04
 - Removed conversion from `\s` to `&nbsp;` for Firefox. It's not needed.
 

@@ -1,6 +1,6 @@
 {
   "name": "caret-pos",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Locate the current position of the caret. A plain JavaScript version of Caret.js.",
   "main": "lib/bundle/main.min.js",
   "module": "lib/esm2015/main.js",
