@@ -6,8 +6,9 @@
  * @return {bool} If it is content editable
  */
 export const isContentEditable = (element) => !!(
-  element.contentEditable &&
-  element.contentEditable === 'true'
+  element.contentEditable ?
+    element.contentEditable === 'true' :
+    element.getAttribute('contenteditable') === 'true'
 );
 
 /**
