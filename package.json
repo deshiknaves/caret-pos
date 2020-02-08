@@ -51,7 +51,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
     "jasmine": "^2.9.0",
-    "karma": "^2.0.0",
+    "karma": "^4.4.1",
     "karma-babel-preprocessor": "^7.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.1",
@@ -62,10 +62,9 @@
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-eslint": "^4.0.0",
-    "rollup-plugin-livereload": "^0.6.0",
+    "rollup-plugin-livereload": "^1.0.4",
     "rollup-plugin-node-resolve": "^3.0.2",
-    "rollup-plugin-serve": "^0.4.2",
-    "rollup-watch": "^4.3.1"
+    "rollup-plugin-serve": "^0.4.2"
   },
   "dependencies": {}
 }
