@@ -4,6 +4,7 @@
 - Added typings
 - Removed `yarn` in preference to `npm`
 - Updated vulnerable packages
+- `isContentEditable` will support other browser APIs where `element.contentEditable` can only be accessed by `element.getAttribute('contentEditable')`.
 
 # Version 1.2.1 - 2018-09-04
 - Removed conversion from `\s` to `&nbsp;` for Firefox. It's not needed.
