@@ -1,7 +1,9 @@
 # Caret Pos
 
-# Version 1.2.2 - 2019-10-21
+# Version 1.2.2 - 2020-02-08
 - Added typings
+- Removed `yarn` in preference to `npm`
+- Updated vulnerable packages
 
 # Version 1.2.1 - 2018-09-04
 - Removed conversion from `\s` to `&nbsp;` for Firefox. It's not needed.
