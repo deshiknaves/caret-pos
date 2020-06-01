@@ -35,7 +35,6 @@ module.exports = function(config) {
     },
 
     rollupPreprocessor: {
-      plugins: [require('rollup-plugin-babel')()],
       output: {
         format: 'iife',
         name: 'caretPos',
