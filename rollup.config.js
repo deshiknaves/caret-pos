@@ -20,7 +20,7 @@ export default [
   {
     input: 'src/main.js',
     output: {
-      name: 'caret-pos',
+      name: 'caretPos',
       exports: 'named',
       sourcemap: true,
       format: 'umd',
@@ -31,7 +31,7 @@ export default [
   {
     input: 'src/main.js',
     output: {
-      name: 'caret-pos',
+      name: 'caretPos',
       exports: 'named',
       sourcemap: true,
       format: 'es',
