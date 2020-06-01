@@ -1,8 +1,11 @@
 {
   "presets": [
-    "es2015-rollup"
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry"
+      }
+    ]
   ],
-  "plugins": [
-    "transform-export-extensions"
-  ]
+  "plugins": ["@babel/syntax-export-extensions"]
 }
