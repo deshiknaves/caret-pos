@@ -1,5 +1,9 @@
 # Caret Pos
 
+# Version 2.0.0 - 2020-06-02
+- Renamed UMD module from `caret-pos` to `caretPos`
+- Updated packages
+
 # Version 1.2.2 - 2020-02-08
 - Added typings
 - Removed `yarn` in preference to `npm`
