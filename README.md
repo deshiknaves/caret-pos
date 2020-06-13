@@ -15,7 +15,7 @@ This is a port of ichord's [Caret.js](https://github.com/ichord/Caret.js). The m
 Thanks to ichord for all his hard work.
 
 ## Usage
-Simply import `position` and/or `offset` from `cart-pos`.
+Simply import `position` and/or `offset` from `caret-pos`.
 
 ```javascript
 import { position, offset } from 'caret-pos';
