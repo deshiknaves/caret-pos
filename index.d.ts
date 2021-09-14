@@ -26,7 +26,7 @@ export type Pos = { left: number, top: number, height: number, pos: number }
  * Gets or sets the position. Pass value to set, omit to get.
  */
 export declare function position(element: Element, settings?: CaretPositionSettings): Pos;
-export declare function position(element: Element, value?: number, settings?: CaretPositionSettings): Pos;
+export declare function position(element: Element, value?: number, settings?: CaretPositionSettings): Element;
 
 export type Offset = { left: number, top: number, height: number }
 
