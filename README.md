@@ -10,7 +10,7 @@ This can also set the position in an editable field.
 
 ## Caret.js
 
-This is a port of ichord's [Caret.js](https://github.com/ichord/Caret.js). The motivation for porting this was to drop the jQuery dependency and drop support for older browsers. This library won't work with any browser that doesn't have support for the [Selection API](https://developer.mozilla.org/en-US/docs/Web/API/Selection). Check [caniuse.com](https://caniuse.com/#search=selection) for browser support.
+This is a port of ichord's [Caret.js](https://github.com/ichord/Caret.js). The motivation for porting this was to drop the jQuery dependency and drop support for older browsers. This library won't work with any browser that doesn't have support for the [Selection API](https://developer.mozilla.org/en-US/docs/Web/API/Selection). Check [caniuse.com](https://caniuse.com/selection-api) for browser support.
 
 Thanks to ichord for all his hard work.
 
