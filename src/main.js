@@ -20,7 +20,7 @@ export const position = (element, value, settings = {}) => {
   let options = settings;
   if (isObject(value)) {
     options = value;
-    value = null;
+    value = undefined;
   }
   const ctx = getContext(options);
   const caret = createCaret(element, ctx);
@@ -42,7 +42,7 @@ export const offset = (element, value, settings = {}) => {
   let options = settings;
   if (isObject(value)) {
     options = value;
-    value = null;
+    value = undefined;
   }
 
   const ctx = getContext(options);
